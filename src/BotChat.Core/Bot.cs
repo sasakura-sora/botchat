@@ -1,4 +1,5 @@
 ﻿using BotChat.Modules.Contracts;
+using System;
 using System.Collections.Generic;
 
 namespace BotChat.Core
@@ -21,5 +22,16 @@ namespace BotChat.Core
         }
 
         public List<IModule> ModuleList() => modules;
+
+        public void MessageReceive(string message)
+        {
+            foreach (var module in modules)
+            {
+                if (module.Trigger(message))
+                {
+                    module.Process(message);
+                }
+            }
+        }
     }
 }
