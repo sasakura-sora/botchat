@@ -10,4 +10,9 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BotChat.Core\BotChat.Core.csproj" />
+    <ProjectReference Include="..\BotChat.Modules\BotChat.Modules.csproj" />
+  </ItemGroup>
+
 </Project>
