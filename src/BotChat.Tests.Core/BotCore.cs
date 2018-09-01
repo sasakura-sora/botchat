@@ -1,5 +1,6 @@
 ﻿using BotChat.Core;
-using BotChat.Modules;
+using BotChat.Modules.Contracts;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace BotChat.Tests.Core
@@ -12,7 +13,7 @@ namespace BotChat.Tests.Core
         {
             var bot = new Bot();
 
-            var testModule = new TestModule();
+            var testModule = Substitute.For<IModule>();
 
             bot.ModuleLoad(testModule);
 
@@ -26,7 +27,7 @@ namespace BotChat.Tests.Core
         {
             var bot = new Bot();
 
-            var testModule = new TestModule();
+            var testModule = Substitute.For<IModule>();
 
             bot.ModuleLoad(testModule);
             bot.ModuleLoad(testModule);
