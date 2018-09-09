@@ -6,4 +6,8 @@
     <AssemblyName>BotChat.ConsoleHost</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BotChat.Core\BotChat.Core.csproj" />
+  </ItemGroup>
+
 </Project>

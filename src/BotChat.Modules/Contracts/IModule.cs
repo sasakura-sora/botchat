@@ -3,6 +3,6 @@
     public interface IModule
     {
         bool Trigger(string message);
-        void Process(string message);
+        string Process(string message);
     }
 }

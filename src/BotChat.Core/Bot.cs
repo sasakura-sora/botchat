@@ -1,5 +1,4 @@
 ﻿using BotChat.Modules.Contracts;
-using System;
 using System.Collections.Generic;
 
 namespace BotChat.Core
@@ -7,6 +6,7 @@ namespace BotChat.Core
     public class Bot
     {
         private List<IModule> modules;
+        private string messageBuffer = string.Empty;
 
         public Bot()
         {
@@ -29,9 +29,27 @@ namespace BotChat.Core
             {
                 if (module.Trigger(message))
                 {
-                    module.Process(message);
+                    var output = module.Process(message);
+
+                    if(string.IsNullOrEmpty(output) == false)
+                    {
+                        MessageBuffer(output);
+                    }
                 }
             }
+        }
+
+        public void MessageBuffer(string message)
+        {
+            messageBuffer = message;
+        }
+
+        public string MessageSend()
+        {
+            var output = messageBuffer;
+            messageBuffer = string.Empty;
+
+            return output;
         }
     }
 }

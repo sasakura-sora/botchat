@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BotChat.Core;
+using BotChat.Modules;
+using System;
 
 namespace BotChat.ConsoleHost
 {
@@ -6,7 +8,16 @@ namespace BotChat.ConsoleHost
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var bot = new Bot();
+
+            bot.ModuleLoad(new EchoModule());
+
+            while (true)
+            {
+                var input = Console.ReadLine();
+                bot.MessageReceive(input);
+                Console.WriteLine(bot.MessageSend());
+            }
         }
     }
 }
