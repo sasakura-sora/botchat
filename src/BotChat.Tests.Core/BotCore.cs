@@ -2,10 +2,12 @@
 using BotChat.Modules.Contracts;
 using NSubstitute;
 using NUnit.Framework;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BotChat.Tests.Core
 {
     [TestFixture]
+    [ExcludeFromCodeCoverage]
     public class BotCore
     {
         [Test]
